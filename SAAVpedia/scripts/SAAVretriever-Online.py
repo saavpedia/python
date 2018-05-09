@@ -25,6 +25,7 @@ def main(theArgs):
 
     theStartTime = time.time()
     theSAAVpedia = SAAVpedia()
+    theSAAVpedia.changeOnlineDB()
 
     # Reading Input file
     print 'Reading the input file...'
@@ -34,7 +35,7 @@ def main(theArgs):
     if theArgs.output:
         theOutputName = theArgs.output
     else :
-        theOutputName = datetime.now().strftime('SNVretriever-%Y-%m-%d-%Hh-%Mm-%S.%fs.scf')
+        theOutputName = datetime.now().strftime('SAAVretriever-%Y-%m-%d-%Hh-%Mm-%S.%fs.scf')
 
     print 'Fetching output data...'
     theRESTBegin = time.time()
@@ -55,7 +56,7 @@ def main(theArgs):
     pass
 
 if __name__ == '__main__':
-    theParser = argparse.ArgumentParser(description='SAAVpedia: SNVretriever program')
+    theParser = argparse.ArgumentParser(description='SAAVpedia: SAAVretriever program')
     theParser.add_argument('--input', dest='input', help='SCF input file pat')
     theParser.add_argument('--output', dest='output', help='SCF output file path')
 

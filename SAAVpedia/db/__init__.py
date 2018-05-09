@@ -18,6 +18,7 @@
 
 from ClassSAAVpediaInputParser import SAAVpediaInputParser
 from ClassOnlineDB import OnlineDB
+from ClassLocalDB import LocalDB
 
 if __name__ == '__main__':
     pass

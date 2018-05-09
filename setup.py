@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='SAAVpedia',
 
-    version='0.3.1',
+    version='0.4.0',
 
     description='SAAVpedia python library',
 
@@ -21,7 +21,7 @@ setup(
 
     zip_safe=False,
 
-    setup_requires=['nose>=1.0', 'datetime>=4.0', 'MySQL-python>=1.2', 'requests>=2.0'],
+    setup_requires=['nose>=1.0', 'datetime>=4.0', 'MySQL-python>=1.2', 'requests>=2.14'],
 
     test_suite='nose.collector'
 )

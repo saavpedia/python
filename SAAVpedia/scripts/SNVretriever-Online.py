@@ -25,6 +25,7 @@ def main(theArgs):
 
     theStartTime = time.time()
     theSAAVpedia = SAAVpedia()
+    theSAAVpedia.changeOnlineDB()
 
     # Reading Input file
     print 'Reading the input file...'

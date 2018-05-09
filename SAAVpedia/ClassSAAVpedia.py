@@ -16,14 +16,15 @@
 # limitations under the License.
 ################################################################################
 
-#from db import LocalDB
+from db import LocalDB
 from db import OnlineDB
+import glob, os, shutil
 
 class SAAVpedia(object) :
 
     def __init__(self):
-        self.__itsDB = OnlineDB()
-        self.__isOnlineDB = True
+        self.__itsDB = LocalDB()
+        self.__isOnlineDB = False
         self.__itsKeyMap = dict()
         self.__isFilterChanged = False
         self.__itsFilteredHeader = []
@@ -43,13 +44,17 @@ class SAAVpedia(object) :
         self.__itsKeyMap = theKeyMap
         pass
 
+    def __setDB(self, theInput):
+        self.__isFilterChanged = False
+        self.__itsDB.set(theInput)
+
     def set(self, theInputText):
-        self.__itsDB.set(theInputText)
+        self.__setDB(theInputText)
         pass
 
     def open(self, theInputFile):
         with open(theInputFile, 'r') as theReader:
-            self.__itsDB.set(theReader.read())
+            self.__setDB(theReader.read())
         pass
 
     def openSCF(self, theSCFFile):
@@ -60,7 +65,7 @@ class SAAVpedia(object) :
                 theID = ithLine.split('\t')[0]
                 #print theID
                 theString += (theID + '\n')
-            self.__itsDB.set(theString)
+            self.__setDB(theString)
         pass
 
     def setupToSNVRetriever(self):
@@ -79,6 +84,19 @@ class SAAVpedia(object) :
         self.__itsDB.setupToIdentifier()
         pass
 
+    def changeLocalDB(self):
+        if self.__isOnlineDB:
+            self.__itsDB = LocalDB()
+            self.__isFilterChanged = False
+            self.__isOnlineDB = False
+        pass
+
+    def changeOnlineDB(self):
+        if not self.__isOnlineDB:
+            self.__itsDB = OnlineDB()
+            self.__isFilterChanged = False
+            self.__isOnlineDB = True
+        pass
 
     def data(self):
         return self.getData()
@@ -103,6 +121,21 @@ class SAAVpedia(object) :
     def toString(self, theLength = -1):
         return self.__itsDB.toString(theLength)
 
+    def init(self):
+        from db.ClassSQLite3 import SQLite3
+        theSQLite3 = SQLite3()
+        theSQLite3.load()
+        pass
+
+    def install(self):
+        self.init()
+        theScriptPath = os.path.dirname(os.path.abspath(__file__)) + os.sep + 'scripts/*.*'
+        theScriptList = glob.glob(theScriptPath)
+        for ith in theScriptList:
+            print 'Copying {0}...'.format(os.path.basename(ith))
+            shutil.copy(ith, os.getcwd()+os.sep+os.path.basename(ith))
+            pass
+        pass
 
     def __str__(self):
         #return str(self.getHeaderAndData())
@@ -124,7 +157,7 @@ class SAAVpedia(object) :
         for ithElement in theData:
             theNewElement = []
             for idx in range(self.__itsSCFLength):
-                print idx, theData
+                #print idx, theData
                 theNewElement.append(ithElement[idx])
                 pass
             theNewFilteredData.append(theNewElement)
@@ -158,12 +191,17 @@ class SAAVpedia(object) :
 
 if __name__ == '__main__':
     theInput = "NDVDCAYLR\n" \
-               "WLEAK"
+               "LEAK"
 
     theSAAVpedia = SAAVpedia()
 
+    theSAAVpedia.changeOnlineDB()
+    theSAAVpedia.changeLocalDB()
+
     theSAAVpedia.set(theInput)
-    theSAAVpedia.setupToIdentifier()
+    theSAAVpedia.applyFilter()
+    print theSAAVpedia.toString()
+    #theSAAVpedia.setupToIdentifier()
 
     '''
     theSAAVpedia.applyFilter([('brp_chembl', True),
@@ -176,7 +214,7 @@ if __name__ == '__main__':
                               ('brp_gd', True), ('brp_gf', True), ('brp_gs', True), ('brp_hgnc', True),
                               ('vsn_exac_Oc', True), ('vsn_vt', True)])
     '''
-    print theSAAVpedia
+    #print theSAAVpedia
     print theSAAVpedia.header()
     print theSAAVpedia.data()
 

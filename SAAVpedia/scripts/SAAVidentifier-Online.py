@@ -19,22 +19,23 @@
 import argparse, sys
 import time
 from datetime import datetime
-from SAAVpedia.ClassSAAVpedia import SAAVpedia
+from SAAVpedia import SAAVpedia
 
 def main(theArgs):
 
     theStartTime = time.time()
     theSAAVpedia = SAAVpedia()
+    theSAAVpedia.changeOnlineDB()
 
     # Reading Input file
     print 'Reading the input file...'
     theSAAVpedia.set(file(theArgs.input).read())
-    theSAAVpedia.setupToSAAVRetriever()
+    theSAAVpedia.setupToIdentifier()
 
     if theArgs.output:
         theOutputName = theArgs.output
     else :
-        theOutputName = datetime.now().strftime('SNVretriever-%Y-%m-%d-%Hh-%Mm-%S.%fs.scf')
+        theOutputName = datetime.now().strftime('SAAVidentifier-%Y-%m-%d-%Hh-%Mm-%S.%fs.scf')
 
     print 'Fetching output data...'
     theRESTBegin = time.time()
@@ -43,21 +44,20 @@ def main(theArgs):
     theRESTEnd = time.time()
     print 'Estimated time for fetching data: {0:.6f}s'.format(theRESTEnd-theRESTBegin)
 
-    print 'Writing {0} file...'.format(theOutputName)
+    print 'Writing \"{0}\" file...'.format(theOutputName)
     theWriter = file(theOutputName, 'w')
     for ithData in theSCFData:
         theWriter.write('\t'.join(ithData)+'\n')
     theWriter.close()
 
     theEndTime = time.time()
-    print 'Estimated time: {0:.3f}s'.format(theEndTime-theStartTime)
-
+    print 'Total estimated time: {0:.3f}s'.format(theEndTime-theStartTime)
     pass
 
 if __name__ == '__main__':
-    theParser = argparse.ArgumentParser(description='SAAVpedia: SNVretriever program')
-    theParser.add_argument('--input', dest='input', help='SCF input file pat')
-    theParser.add_argument('--output', dest='output', help='SCF output file path')
+    theParser = argparse.ArgumentParser(description='SAAVpedia: SAAVidentifier program')
+    theParser.add_argument('--input', dest='input', help='SAAV peptide sequence input file path')
+    theParser.add_argument('--output', dest='output', help='SCF Output file path')
 
     theArgs = theParser.parse_args(sys.argv[1:])
 

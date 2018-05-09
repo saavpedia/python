@@ -64,7 +64,7 @@ class LocalDB(object) :
     def getHeaderAndData(self):
         if self.__isChanged == True:
             try:
-                self.__itsSQLite.open('/home/youngmook/storage/SAAVPedia/PycharmProjects/SAAVpedia-v1.0/python/tmp/2018.05.04/SAAVpediaData.sqlite.db')
+                self.__itsSQLite.load()
                 theQeuryList = self.__itsInputParser.toSqlQueryList()
                 theFetchAllResult = []
                 for ithQuery in theQeuryList:
@@ -80,15 +80,9 @@ class LocalDB(object) :
                 self.__itsHeader = theHeaderList
                 self.__itsData = theChangedData
 
-                #r = requests.post(self.url(), self.input())
-                #print r.text
-                #theData = json.loads(r.text)
-                #self.__itsHeader = theData[0]
-                #self.__itsData = theData[1]
                 self.__isChanged = False
                 return self.__itsHeader, self.__itsData
             except Exception as e:
-                #self.__isChanged = False
                 print str(e)
                 return [], []
             pass
@@ -105,7 +99,6 @@ class LocalDB(object) :
 
     def data(self):
         return self.getData()
-
 
     def setupToIdentifier(self):
         self.__isChanged = True

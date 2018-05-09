@@ -16,6 +16,4 @@
 # limitations under the License.
 ################################################################################
 
-if __name__ == '__main__':
-    pass
-
+from ClassSAAVpedia import SAAVpedia
