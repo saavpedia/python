@@ -57,17 +57,14 @@ class SQLite3(object) :
         for idx in range(theNumOfSplitFiles):
             theTempFilePath = '{0}{1}SAAVpedia.sqlite.{2}.db'.format(theTempFolder, os.sep, str(idx))
             theTempFileList.append(theTempFilePath)
-            print 'Downloading SAAVpedia.sqlite.{0}.db - {1:.2f}%'.format(idx, (idx+1.0)/theNumOfSplitFiles*100.0)
             if (not os.path.exists(theTempFilePath)) or (os.path.getsize(theTempFilePath) != theUnitSize):
+                print 'Downloading SAAVpedia.sqlite.{0}.db - {1:.2f}%'.format(idx, (idx + 1.0) / theNumOfSplitFiles * 100.0)
                 theTempWriter = open(theTempFilePath, 'wb')
                 theURL = 'https://github.com/saavpedia/python/blob/master/SAAVpedia/db/{0}/SAAVpediaData.sqlite.db.{1}.kbsi?raw=true'.format(theLastVersionInfo['folder'], idx)
                 theData = urllib2.urlopen(theURL).read()
                 theTempWriter.write(theData)
                 theTempWriter.close()
                 pass
-            else :
-                theReader = open(theTempFilePath, 'rb')
-                theReader.close()
         print 'Download is completed.'
         theCount = 0
         for ithDBFile in theTempFileList:
@@ -75,6 +72,7 @@ class SQLite3(object) :
             with open(ithDBFile, 'rb') as theReader:
                 theWriter.write(theReader.read())
                 pass
+            theCount += 1
             pass
 
         theWriter.close()

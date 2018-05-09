@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='SAAVpedia',
 
-    version='0.4.0',
+    version='0.4.6.2',
 
     description='SAAVpedia python library',
 

@@ -43,7 +43,7 @@ def main(theArgs):
     theSAAVpedia.applyFilter(theArgs._get_kwargs())
     theSCFData = theSAAVpedia.data()
     theRESTEnd = time.time()
-    print 'Estimated time for fetching data: {0:.6f}s'.format(theRESTEnd-theRESTBegin)
+    print 'Estimated time for fetching data: {0:.3f}s'.format(theRESTEnd-theRESTBegin)
 
     print 'Writing {0} file...'.format(theOutputName)
     theWriter = file(theOutputName, 'w')
@@ -52,7 +52,7 @@ def main(theArgs):
     theWriter.close()
 
     theEndTime = time.time()
-    print 'Estimated time: {0}'.format(theEndTime-theStartTime)
+    print 'Total estimated time: {0:.3f}s'.format(theEndTime-theStartTime)
 
     pass
 

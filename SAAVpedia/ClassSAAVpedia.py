@@ -124,18 +124,18 @@ class SAAVpedia(object) :
     def init(self):
         from db.ClassSQLite3 import SQLite3
         theSQLite3 = SQLite3()
-        theSQLite3.load()
-        pass
+        return theSQLite3.load()
 
-    def install(self):
-        self.init()
-        theScriptPath = os.path.dirname(os.path.abspath(__file__)) + os.sep + 'scripts/*.*'
+    def install(self, theCount = 0):
+        if self.init():
+            return True
+        theScriptPath = os.path.dirname(os.path.abspath(__file__)) + os.sep + 'scripts/S*.py'
         theScriptList = glob.glob(theScriptPath)
         for ith in theScriptList:
             print 'Copying {0}...'.format(os.path.basename(ith))
             shutil.copy(ith, os.getcwd()+os.sep+os.path.basename(ith))
             pass
-        pass
+        return False
 
     def __str__(self):
         #return str(self.getHeaderAndData())

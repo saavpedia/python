@@ -66,7 +66,7 @@ class OnlineDB(object) :
         if self.__isChanged == True:
             try:
                 r = requests.post(self.url(), self.input())
-                print r.text
+                #print r.text
                 theData = json.loads(r.text)
                 self.__itsHeader = theData[0]
                 self.__itsData = theData[1]
