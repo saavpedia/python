@@ -29,7 +29,7 @@ class SQLite3(object) :
         ]
         pass
 
-    def __load(self, theCount = 0):
+    def __load(self):
         theBasePath = os.path.dirname(os.path.realpath(__file__))
         theDBFilePath = theBasePath + '/saavpedia.db'
         if os.path.exists(theDBFilePath):
@@ -39,9 +39,7 @@ class SQLite3(object) :
                 #print 'Local SAAVpedia DB is loaded.'
                 return False
             pass
-        if theCount == 0:
-            self.__saveDB(theDBFilePath)
-            return self.__load(theCount+1)
+        self.__saveDB(theDBFilePath)
         self.__itsCursor = None
         return True
 
@@ -68,7 +66,7 @@ class SQLite3(object) :
         print 'Download is completed.'
         theCount = 0
         for ithDBFile in theTempFileList:
-            print 'Generating SAAVpedia DB... - {1:.2f}%'.format((theCount+1.0)/theNumOfSplitFiles*100.0)
+            print 'Generating SAAVpedia DB... - {0:.2f}%'.format((theCount+1.0)/theNumOfSplitFiles*100.0)
             with open(ithDBFile, 'rb') as theReader:
                 theWriter.write(theReader.read())
                 pass
