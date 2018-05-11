@@ -12,10 +12,10 @@ https://www.SAAVpedia.org
 You must have administrator privileges or writing access to install SAAVpedia   
 #### [Unix/Linux]
 ##### Install SAAVpedia python modules.
-    $ sudo pip install SAAVpedia
+    $ pip install SAAVpedia
 
 ##### Download SAAVpedia DB in the local computer.
-    $ sudo python
+    $ python
     Python 2.7.12 (default, Dec  4 2017, 14:50:18)
     [GCC 5.4.0 20160609] on linux2
     Type "help", "copyright", "credits" or "license" for more information.
