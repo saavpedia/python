@@ -1,21 +1,35 @@
 # Welcome to SAAVpedia 
 
-### SAAVpedia: identification, functional annotation, retrieval of single amino-acid variants from proteomic and genomic data. 
-
 ## What's SAAVpedia
-- SAAVpedia is a platform for identification, functional annotation, retrieval of single amino-acid variants from proteomic and genomic data
-- SAAVpedia provides three user interfaces consisting of <b>Web User Interface, Web API and Python package</b>.
-  - Web User Interface for users without programming knowledge
-  - Visit https://www.SAAVpedia.org
-- This GitHub repository has source codes of SAAVpedia Python package.
-
+#### **SAAVpedia** is a platform for **identification, functional annotation, retrieval of single amino-acid variants from proteomic and genomic data**.
+* **SAAVpedia provides** three user interfaces consisting of 
+  * **Web User Interface (WUI)**
+  * **Web Application Programming Interface (API)**
+  * **Python package**.
+* For Users with Python programming skills.
+  * **This repository offers source codes of SAAVpedia Python package.**
+* For Users without programming knowledge
+  * Use WUI of SAAVpedia - <https://www.SAAVpedia.org>
 
 ## Getting Started
-1.Install SAAVpedia Python at the command prompt if you have not yet:   
-You must have administrator privileges or writing access to install SAAVpedia   
-#### [Unix/Linux]
-##### Install SAAVpedia python modules.
-    $ pip install SAAVpedia
+
+### [Unix/Linux]
+
+#### Initial Python Setup for SAAVpedia.
+
+Install SAAVpedia Python at the command prompt if you have not yet:   
+To install SAAVpedia Python package,<br/> 
+You **must have administrator privileges** or **write-access** on Python library folder.
+
+##### Step One - Install SAAVpedia Python package via PyPI.
+    $ pip install SAAVpedia   
+    Collecting SAAVpedia
+    Downloading https://files.pythonhosted.org/packages/...
+    Installing collected packages: SAAVpedia
+    Successfully installed SAAVpedia-x.x.x
+   
+##### Step Two - Upgrade SAAVpedia Python package via PyPI.     
+    $ pip install --upgrade SAAVpedia
 
 ##### Download SAAVpedia DB in the local computer.
     $ python
