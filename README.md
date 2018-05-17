@@ -1,11 +1,14 @@
 # Welcome to SAAVpedia 
 
-## What's SAAVpedia
-- SAAVpedia is a platform for searching SAAV.
-- Python modules for SAAVpedia
+### SAAVpedia: identification, functional annotation, retrieval of single amino-acid variants from proteomic and genomic data. 
 
-## SAAVpedia Homepage URL
-https://www.SAAVpedia.org
+## What's SAAVpedia
+- SAAVpedia is a platform for identification, functional annotation, retrieval of single amino-acid variants from proteomic and genomic data
+- SAAVpedia provides three user interfaces consisting of <b>Web User Interface, Web API and Python package</b>.
+  - Web User Interface for users without programming knowledge
+  - Visit https://www.SAAVpedia.org
+- This GitHub repository has source codes of SAAVpedia Python package.
+
 
 ## Getting Started
 1.Install SAAVpedia Python at the command prompt if you have not yet:   
