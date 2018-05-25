@@ -19,12 +19,13 @@
 import argparse, sys
 import time
 from datetime import datetime
-from SAAVpedia import SAAVpedia
+from SAAVpedia.scripts.SAAVpedia import SAAVpedia
 
 def main(theArgs):
 
     theStartTime = time.time()
     theSAAVpedia = SAAVpedia()
+    theSAAVpedia.changeOnlineDB()
 
     # Reading Input file
     print 'Reading the input file...'
@@ -56,7 +57,6 @@ def main(theArgs):
 if __name__ == '__main__':
     theParser = argparse.ArgumentParser(description='SAAVpedia: SAAVidentifier program')
     theParser.add_argument('--input', dest='input', help='SAAV peptide sequence input file path')
-    theParser.add_argument('--dta', dest='dta', help='An IP2 DTASelect-filter.txt file path')
     theParser.add_argument('--output', dest='output', help='SCF Output file path')
 
     theArgs = theParser.parse_args(sys.argv[1:])

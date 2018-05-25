@@ -126,15 +126,12 @@ class SAAVpedia(object) :
         theSQLite3 = SQLite3()
         return theSQLite3.load()
 
-    def install(self, theCount = 0):
+    def install(self, theDestination = './SAAVpedia.tmp'):
         if self.init():
             return True
-        theScriptPath = os.path.dirname(os.path.abspath(__file__)) + os.sep + 'scripts/S*.py'
-        theScriptList = glob.glob(theScriptPath)
-        for ith in theScriptList:
-            print 'Copying {0}...'.format(os.path.basename(ith))
-            shutil.copy(ith, os.getcwd()+os.sep+os.path.basename(ith))
-            pass
+        theScriptPath = os.path.dirname(os.path.abspath(__file__)) + os.sep + 'demo/SAAVpedia'
+        print theDestination
+        shutil.copytree(theScriptPath, theDestination)
         return False
 
     def __str__(self):
@@ -170,7 +167,7 @@ class SAAVpedia(object) :
         for ithArg in theArgList:
             theKey = str(ithArg[0]).lower()
             if ithArg[1] and (theKey in theKeySet):
-                #print self.__itsKeyMap
+                print self.__itsKeyMap
                 theKeyMapSet.add(self.__itsKeyMap[theKey])
                 pass
             pass
@@ -200,10 +197,9 @@ if __name__ == '__main__':
 
     theSAAVpedia.set(theInput)
     theSAAVpedia.applyFilter()
-    print theSAAVpedia.toString()
+    #print theSAAVpedia.toString()
     #theSAAVpedia.setupToIdentifier()
 
-    '''
     theSAAVpedia.applyFilter([('brp_chembl', True),
                               ('brp_ENA', True),
                               ('brp_ensembl_gen', True),
@@ -213,10 +209,9 @@ if __name__ == '__main__':
                               ('brp_gcosmic', True),
                               ('brp_gd', True), ('brp_gf', True), ('brp_gs', True), ('brp_hgnc', True),
                               ('vsn_exac_Oc', True), ('vsn_vt', True)])
-    '''
     #print theSAAVpedia
     print theSAAVpedia.header()
-    print theSAAVpedia.data()
+    #print theSAAVpedia.data()
 
     pass
 
