@@ -51,7 +51,7 @@ def main(theArgs):
 
     print 'Writing {0} file...'.format(theOutputName)
     theWriter = file(theOutputName, 'w')
-    theWriter.write('#'+'\t'.join(theSAAVpedia.header()))
+    theWriter.write('#'+'\t'.join(theSAAVpedia.header())+'\n')
     for ithData in theSCFData:
         theWriter.write('\t'.join(ithData)+'\n')
     theWriter.close()
