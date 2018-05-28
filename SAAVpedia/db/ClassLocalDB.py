@@ -79,7 +79,7 @@ class LocalDB(object) :
                     theSplitedAA = ithData[7].split(':')
                     ithData[7] = theSplitedAA[0]
                     ithData[8] = theSplitedAA[1]
-                    ithData[14] = ithData[15] + ';' + ithData[16]
+                    ithData[14] = '' #ithData[15] + ';' + ithData[16]
                     pass
                 self.__itsHeader = theHeaderList
                 self.__itsData = theChangedData

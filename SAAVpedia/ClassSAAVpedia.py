@@ -30,7 +30,7 @@ class SAAVpedia(object) :
         self.__isFilterChanged = False
         self.__itsFilteredHeader = []
         self.__itsFilteredData = []
-        self.__itsSCFLength = 15
+        self.__itsSCFLength = 14
 
         pass
 
@@ -212,7 +212,7 @@ class SAAVpedia(object) :
         for ithArg in theArgList:
             theKey = str(ithArg[0]).lower()
             if ithArg[1] and (theKey in theKeySet):
-                print self.__itsKeyMap
+                #print self.__itsKeyMap
                 theKeyMapSet.add(self.__itsKeyMap[theKey])
                 pass
             pass
@@ -245,7 +245,7 @@ if __name__ == '__main__':
     #print theSAAVpedia.toString()
     #theSAAVpedia.setupToIdentifier()
 
-    theSAAVpedia.applyFilter([('brp_chembl', True),
+    theSAAVpedia.applyFilter([('snv_esp_oc', True),
                               ('brp_ENA', True),
                               ('brp_ensembl_gen', True),
                               ('brp_ensembl_pro', True),
@@ -253,10 +253,9 @@ if __name__ == '__main__':
                               ('brp_entrez', True),
                               ('brp_gcosmic', True),
                               ('brp_gd', True), ('brp_gf', True), ('brp_gs', True), ('brp_hgnc', True),
-                              ('vsn_exac_Oc', True), ('vsn_vt', True)])
+                              ('snv_exac_Oc', True), ('vsn_vt', True), ('saav_qs',True), ('saav_pvalue',True), ('snv_pgt', True)])
     #print theSAAVpedia
-    print theSAAVpedia.header()
-    #print theSAAVpedia.data()
+    print theSAAVpedia.toString()
 
     pass
 

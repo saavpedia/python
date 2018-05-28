@@ -35,7 +35,7 @@ def changePosition(theData, theChangePositionList):
     return theNewData
 
 theChangePositionListV1 = [
-    0, 1, 2, 3, 4, 6, 11, 12, 12, 13, 14, 16, -1, 8, -1, #SCF
+    0, 1, 2, 3, 4, 6, 11, 12, 12, 13, 14, -1, 8, -1, 16, -1, #SCF
     15, 5, 19, 24, 25, 26, 28, 27, 29,
     30, 20, 22, 23, 21,
     17, 18,
@@ -46,26 +46,27 @@ theChangePositionListV1 = [
 
 theHeaderList = [
     # SCF begin
-    'SAAVpedia_ID',
+    'SAAVpedia_ID', #0
 
-    'SNV_Chr',
-    'SNV_Pos',
-    'SNV_Ref',
-    'SNV_Alt',
-    'SNV_ID',
+    'SNV_Chr', #1
+    'SNV_Pos', #2
+    'SNV_Ref', #3
+    'SNV_Alt', #4
+    'SNV_ID', #6
 
-    'SAAV_Pos',
-    'SAAV_Ref',
-    'SAAV_Alt',
-    'SAAV_RS',
-    'SAAV_AS',
+    'SAAV_Pos', #11
+    'SAAV_Ref', #12
+    'SAAV_Alt', #12
+    'SAAV_RS', #13
+    'SAAV_AS', #14
 
-    'SAAV_QS',   #1
-    'SAAV_filter',
+    'SAAV_filter', # -1
 
-    'PROTEIN_Uniprot',
+    'PROTEIN_Uniprot', #8
 
-    'Comment',
+    'Information', #-1
+    'SAAV_QS',   #16
+    'SAAV_Pvalue',   #-1
     # SCF end
 
     # 'SAAV_Pval',
