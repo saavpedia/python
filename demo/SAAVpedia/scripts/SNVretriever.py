@@ -29,7 +29,7 @@ def main(theArgs):
     # Reading Input file
     print 'Reading the input file...'
     theSAAVpedia.set(file(theArgs.input).read())
-    theSAAVpedia.setupToSAAVRetriever()
+    theSAAVpedia.setupToSNVRetriever()
 
     if theArgs.output:
         theOutputName = theArgs.output

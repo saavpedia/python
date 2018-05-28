@@ -69,7 +69,7 @@ class LocalDB(object) :
             try:
                 self.__itsSQLite.load()
                 theQeuryList = self.__itsInputParser.toSqlQueryList()
-                print theQeuryList
+                #print theQeuryList
                 theFetchAllResult = []
                 for ithQuery in theQeuryList:
                     theFetchAllResult += self.__itsSQLite.execute(ithQuery).fetchall()
