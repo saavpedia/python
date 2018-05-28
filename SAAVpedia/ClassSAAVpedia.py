@@ -131,22 +131,22 @@ class SAAVpedia(object) :
         if self.init():
             return True
         theScriptDownloadList = [
-            ['SAAVidentifier-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVidentifier-Online.py'],
-            ['SAAVidentifier.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVidentifier.py'],
-            ['SAAVinterpreter-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVinterpreter-Online.py'],
-            ['SAAVinterpreter.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVinterpreter.py'],
-            ['SAAVretriever-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVretriever-Online.py'],
-            ['SAAVretriever.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVretriever.py'],
-            ['SNVretriever-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SNVretriever-Online.py'],
-            ['SNVretriever.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SNVretriever.py'],
+            ['SAAVidentifier-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SAAVidentifier-Online.py'],
+            ['SAAVidentifier.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SAAVidentifier.py'],
+            ['SAAVinterpreter-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SAAVannotator-Online.py'],
+            ['SAAVinterpreter.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SAAVannotator.py'],
+            ['SAAVretriever-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SAAVretriever-Online.py'],
+            ['SAAVretriever.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SAAVretriever.py'],
+            ['SNVretriever-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SNVretriever-Online.py'],
+            ['SNVretriever.py', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/scripts/SNVretriever.py'],
         ]
 
         theInputDownloadList = [
-            ['SAAVidentifier.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVidentifier.input.txt'],
-            ['SAAVinterpreter.input.scf', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVinterpreter.input.scf'],
-            ['SAAVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVretriever.input.txt'],
-            ['SAAVvisualizer.input.scf', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVvisualizer.input.scf'],
-            ['SNVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SNVretriever.input.txt'],
+            ['SAAVidentifier.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SAAVidentifier.input.txt'],
+            ['SAAVinterpreter.input.scf', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SAAVinterpreter.input.scf'],
+            ['SAAVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SAAVretriever.input.txt'],
+            ['SAAVvisualizer.input.scf', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SAAVvisualizer.input.scf'],
+            ['SNVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SNVretriever.input.txt'],
         ]
 
         if not os.path.exists(theDestination):
