@@ -18,7 +18,8 @@
 
 from db import LocalDB
 from db import OnlineDB
-import glob, os, shutil
+import os, urllib2
+#import glob, shutil
 
 class SAAVpedia(object) :
 
@@ -129,9 +130,50 @@ class SAAVpedia(object) :
     def install(self, theDestination = './SAAVpedia.tmp'):
         if self.init():
             return True
-        theScriptPath = os.path.dirname(os.path.abspath(__file__)) + os.sep + 'demo/SAAVpedia'
-        print theDestination
-        shutil.copytree(theScriptPath, theDestination)
+        theScriptDownloadList = [
+            ['SAAVidentifier-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVidentifier-Online.py'],
+            ['SAAVidentifier.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVidentifier.py'],
+            ['SAAVinterpreter-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVinterpreter-Online.py'],
+            ['SAAVinterpreter.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVinterpreter.py'],
+            ['SAAVretriever-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVretriever-Online.py'],
+            ['SAAVretriever.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SAAVretriever.py'],
+            ['SNVretriever-Online.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SNVretriever-Online.py'],
+            ['SNVretriever.py', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/scripts/SNVretriever.py'],
+        ]
+
+        theInputDownloadList = [
+            ['SAAVidentifier.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVidentifier.input.txt'],
+            ['SAAVinterpreter.input.scf', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVinterpreter.input.scf'],
+            ['SAAVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVretriever.input.txt'],
+            ['SAAVvisualizer.input.scf', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SAAVvisualizer.input.scf'],
+            ['SNVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/SAAVpedia/demo/SAAVpedia/test_data/SNVretriever.input.txt'],
+        ]
+
+        if not os.path.exists(theDestination):
+            os.mkdir(theDestination)
+            pass
+
+        theDestScriptPath = theDestination + os.sep + 'scripts'
+        if not os.path.exists(theDestScriptPath):
+            os.mkdir(theDestScriptPath)
+
+        theDestTestDataPath = theDestination + os.sep + 'test_data'
+        if not os.path.exists(theDestTestDataPath):
+            os.mkdir(theDestTestDataPath)
+
+        for ithScript in theScriptDownloadList:
+            print 'Downloading {0} ...'.format(ithScript[0])
+            theData = urllib2.urlopen(ithScript[1]).read()
+            theWriter = open(theDestScriptPath + os.sep + ithScript[0], 'w')
+            theWriter.write(theData)
+            theWriter.close()
+
+        for ithInput in theInputDownloadList:
+            print 'Downloading {0} ...'.format(ithInput[0])
+            theData = urllib2.urlopen(ithInput[1]).read()
+            theWriter = open(theDestTestDataPath + os.sep + ithInput[0], 'w')
+            theWriter.write(theData)
+            theWriter.close()
         return False
 
     def __str__(self):

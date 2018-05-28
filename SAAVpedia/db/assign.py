@@ -48,6 +48,83 @@ theHeaderList = [
     # SCF begin
     'SAAVpedia_ID',
 
+    'SNV_Chr',
+    'SNV_Pos',
+    'SNV_Ref',
+    'SNV_Alt',
+    'SNV_ID',
+
+    'SAAV_Pos',
+    'SAAV_Ref',
+    'SAAV_Alt',
+    'SAAV_RS',
+    'SAAV_AS',
+
+    'SAAV_QS',   #1
+    'SAAV_filter',
+
+    'PROTEIN_Uniprot',
+
+    'Comment',
+    # SCF end
+
+    # 'SAAV_Pval',
+    'SAAV_EC',
+    'SNV_Strand',
+
+    'SNV_1000G_OC',
+    'SNV_1000G_T_MAF',
+    'SNV_1000G_EAS_MAF',
+    'SNV_1000G_AMR_MAF',
+    'SNV_1000G_EUR_MAF',  # 20
+    'SNV_1000G_AFR_MAF',
+    'SNV_1000G_SAS_MAF',
+
+    'SNV_VT',
+    'SNV_ESP_OC',
+    'SNV_ESP_AF_MAF',
+    'SNV_ESP_EU_MAF',
+    'SNV_ExAC_OC',
+
+    'PTM',
+    'PTM_Class',
+
+    'SNV_Phenotype',
+    'SNV_Source',
+    'SNV_OID',
+    'SNV_Phe_CLS',
+
+    'SNV_DB',
+    'SNV_DN',
+    'SNV_DT',
+    'SNV_PGT',
+
+    'PROTEIN_Nextprot',
+    'PROTEIN_PDB',
+    'PROTEIN_Ensembl_Pro',
+    'TRANSCRIPT_Ensembl_Tra',
+    'GENE_Ensembl_Gen',
+    'GENE_GF',
+    'GENE_GD',
+    'GENE_GS',
+    'GENE_HGNC',
+    'GENE_UCSC',
+    'GENE_Cosmic',
+    'GENE_Entrez',
+    'GENE_RefSeq',
+    'Disease_Omim', #50
+    'DRUG_PharmGKB',
+    'DRUG_ChEMBL',
+    'Literature_PMID',
+    'Biological_function_STRING',
+    'Biological_function_Vega',
+    'Biological_function_ENA'
+]
+
+theHeaderList_Bak = [
+    # SCF begin
+    'SAAVpedia_ID',
+
     'VSN_Chr',
     'VSN_Pos',
     'VSN_Ref',

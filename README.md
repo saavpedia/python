@@ -2,14 +2,16 @@
 
 ## What's SAAVpedia
 #### **SAAVpedia** is a platform for **identification, functional annotation, retrieval of single amino-acid variants from proteomic and genomic data**.
-* **SAAVpedia provides** three user interfaces consisting of 
-  * **Web User Interface (WUI)**
-  * **Web Application Programming Interface (API)**
-  * **Python package**.
-* For Users with Python programming skills.
-  * **This repository offers source codes of SAAVpedia Python package.**
-* For Users without programming knowledge
-  * Use WUI of SAAVpedia - <https://www.SAAVpedia.org>
+- **SAAVpedia provides** three user interfaces consisting of 
+
+  - **Web User Interface (WUI)**
+  - **Web Application Programming Interface (API)**
+  - **Python package**.
+  
+- For Users with Python programming skills.
+  - **This repository offers source codes of SAAVpedia Python package.**
+- For Users without programming knowledge
+  - Use WUI of SAAVpedia - <https://www.SAAVpedia.org>
 
 ## Getting Started
 
@@ -97,6 +99,3 @@ After installation of SAAVpedia in Python, You can see several SAAVpedia command
     Writing "SAAVidentifier-2018-05-10-09h-15m-17.405145s.scf" file...
     Total estimated time: 1.883s
     
-#####
-#####
-#####
