@@ -157,7 +157,7 @@ class SAAVpedia(object) :
         if not os.path.exists(theDestScriptPath):
             os.mkdir(theDestScriptPath)
 
-        theDestTestDataPath = theDestination + os.sep + 'test_data'
+        theDestTestDataPath = theDestination + os.sep + 'example'
         if not os.path.exists(theDestTestDataPath):
             os.mkdir(theDestTestDataPath)
 
