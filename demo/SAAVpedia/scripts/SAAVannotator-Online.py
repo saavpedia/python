@@ -65,7 +65,7 @@ def main(theArgs):
 if __name__ == '__main__':
     theParser = argparse.ArgumentParser(description='SAAVpedia: SAAVannotator program')
     theParser.add_argument('--input', dest='input', help='SCF input file path')
-    theParser.add_argument('--output', dest='output', help='SCF output file path')
+    theParser.add_argument('--output', dest='output', help='Functional Annotation with SCF output file path')
 
     theParser.add_argument('--SNV_1000G_OC', action='store_true', help='Occurring(OC) in the 1000 Genomes variant list.')
     theParser.add_argument('--SNV_1000G_T_MAF', action='store_true', help='Minor allele frequency(MAF) in the 1000Genome population.')
