@@ -87,6 +87,8 @@ if __name__ == '__main__':
     theParser.add_argument('--SNV_DN', action='store_true', help='Drug name(DN)')
     theParser.add_argument('--SNV_DT', action='store_true', help='Drug type(DT)')
     theParser.add_argument('--SNV_PGT', action='store_true', help='Pharmacological gene type')
+    theParser.add_argument('--PTM', action='store_true', help='Post-Translational Modification')
+    theParser.add_argument('--EFO', action='store_true', help='EFO IDs')
     theParser.add_argument('--PROTEIN_Uniplot', action='store_true', help='Uniplot identifier')
     theParser.add_argument('--PROTEIN_Nextprot', action='store_true', help='NextProt identifier')
     theParser.add_argument('--PROTEIN_PDB', action='store_true', help='Protein Data Bank(PDB) identifier')

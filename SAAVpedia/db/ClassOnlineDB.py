@@ -49,6 +49,9 @@ class OnlineDB(object) :
         self.__itsInputParser.set(theInputText)
         pass
 
+    def setSplitNum(self, theSplitNum):
+        self.__itsInputParser.setSplitNumber(theSplitNum)
+
     def toSqlQuery(self):
         return self.__itsInputParser.toSqlQuery()
 

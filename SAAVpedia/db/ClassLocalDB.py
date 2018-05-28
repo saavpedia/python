@@ -51,6 +51,9 @@ class LocalDB(object) :
         self.__itsInputParser.set(theInputText)
         pass
 
+    def setSplitNum(self, theSplitNum):
+        self.__itsInputParser.setSplitNumber(theSplitNum)
+
     def toSqlQuery(self):
         return self.__itsInputParser.toSqlQuery()
 
@@ -66,6 +69,7 @@ class LocalDB(object) :
             try:
                 self.__itsSQLite.load()
                 theQeuryList = self.__itsInputParser.toSqlQueryList()
+                print theQeuryList
                 theFetchAllResult = []
                 for ithQuery in theQeuryList:
                     theFetchAllResult += self.__itsSQLite.execute(ithQuery).fetchall()
@@ -149,8 +153,10 @@ class LocalDB(object) :
 if __name__ == '__main__':
     theInput = "NDVDCAYLR\nLEAK\n" \
                "LEAK ENSP00000358071"
+    theInput = "P04259\tENSP00000252252\nchr:12\tNX_P04259-1\tAApos:97\tENSP00000252252\nP04259\tENSP00000252252\tchr:12\tAApos:97\nNX_P04259-1\tAApos:97\nchr:12\tENSP00000252252\tP04259\nchr:12\tENSP00000252252\tP04259\tAApos:63\nchr:12\tENSP00000369317\tAApos:97\nNX_P02538-1\tAApos:97\nAApos:97\tENSP00000369317\tP02538\tchr:12\nNX_P02538-1\nP27695\tchr:14\nENSP00000216714\tNX_P27695-1\nP27695\nNX_P27695-1\tENSP00000216714\tchr:14\tAApos:121\nENSP00000216714\tP27695\tAApos:148\tchr:14\nENSP00000216714\tAApos:148\tchr:14\nAApos:248\tchr:14\tENSP00000216714\nchr:14\tP27695\tENSP00000216714\nAApos:436\tNX_P06865-1\tENSP00000268097\nENSP00000268097\tAApos:8\tP06865"
     theDB = LocalDB()
     theDB.set(theInput)
+    theDB.setSplitNum(1)
     print theDB
     #theDB.setupToIdentifier()
     #print theDB.getHeader()
