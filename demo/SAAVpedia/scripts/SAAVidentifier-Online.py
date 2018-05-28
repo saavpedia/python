@@ -16,10 +16,10 @@
 # limitations under the License.
 ################################################################################
 
-import argparse, sys
+import argparse, sys, os
 import time
 from datetime import datetime
-from SAAVpedia.scripts.SAAVpedia import SAAVpedia
+from SAAVpedia import SAAVpedia
 
 def main(theArgs):
 
@@ -34,8 +34,14 @@ def main(theArgs):
 
     if theArgs.output:
         theOutputName = theArgs.output
-    else :
-        theOutputName = datetime.now().strftime('SAAVidentifier-%Y-%m-%d-%Hh-%Mm-%S.%fs.scf')
+    else:
+        theResultFolder = os.getcwd() + os.sep + 'result'
+        if not os.path.exists(theResultFolder):
+            os.mkdir(theResultFolder)
+        elif not os.path.isdir(theResultFolder):
+            theResultFolder += theResultFolder + datetime.now().strftime('-%Y-%m-%d-%Hh-%Mm-%S.%fs')
+            os.mkdir(theResultFolder)
+        theOutputName = theResultFolder + os.sep + datetime.now().strftime('SAAVidentifier-%Y-%m-%d-%Hh-%Mm-%S.%fs.scf')
 
     print 'Fetching output data...'
     theRESTBegin = time.time()
@@ -57,6 +63,8 @@ def main(theArgs):
 if __name__ == '__main__':
     theParser = argparse.ArgumentParser(description='SAAVpedia: SAAVidentifier program')
     theParser.add_argument('--input', dest='input', help='SAAV peptide sequence input file path')
+    theParser.add_argument('--dta', dest='dta', help='An IP2 DTASelect-filter.txt file path')
+    theParser.add_argument('--dta_path', dest='dta', help='A path including one or more DTASelect files')
     theParser.add_argument('--output', dest='output', help='SCF Output file path')
 
     theArgs = theParser.parse_args(sys.argv[1:])
