@@ -20,6 +20,8 @@ import argparse, sys, os
 import time
 from datetime import datetime
 from SAAVpedia import SAAVpedia
+from SAAVpedia.dta import calculateQualityScore
+from SAAVpedia.dta import getDTAFilePathList
 
 def main(theArgs):
 
@@ -49,10 +51,25 @@ def main(theArgs):
     theRESTEnd = time.time()
     print 'Estimated time for fetching data: {0:.3f}s'.format(theRESTEnd-theRESTBegin)
 
+    if theArgs.dta:
+        print 'Loading a DTASelect-filter.txt file ({0})'.format(theArgs.dta)
+        theSCFData = calculateQualityScore(theSCFData, [theArgs.dta])
+        theSCFHeader = theSAAVpedia.header()
+        theSCFHeader.append('SAAV_QS')
+        theSCFHeader.append('SAAV_Pvalue')
+    elif theArgs.dta_path:
+        theDTAFilePathList = getDTAFilePathList(theArgs.dta_path)
+        for ithDTA in theDTAFilePathList:
+            print 'Loading a DTASelect-filter.txt file ({0})'.format(ithDTA)
+        theSCFData = calculateQualityScore(theSCFData, theDTAFilePathList)
+        theSCFHeader = theSAAVpedia.header()
+        theSCFHeader.append('SAAV_QS')
+        theSCFHeader.append('SAAV_Pvalue')
+
     print 'Writing \"{0}\" file...'.format(theOutputName)
     theWriter = file(theOutputName, 'w')
     theWriter.write(theSAAVpedia.getMetaInfo())
-    theWriter.write('#'+'\t'.join(theSAAVpedia.header())+'\n')
+    theWriter.write('#'+'\t'.join(theSCFHeader)+'\n')
     for ithData in theSCFData:
         theWriter.write('\t'.join(ithData)+'\n')
     theWriter.close()
@@ -65,7 +82,7 @@ if __name__ == '__main__':
     theParser = argparse.ArgumentParser(description='SAAVpedia: SAAVidentifier program')
     theParser.add_argument('--input', dest='input', help='SAAV peptide sequence input file path')
     theParser.add_argument('--dta', dest='dta', help='An IP2 DTASelect-filter.txt file path')
-    theParser.add_argument('--dta_path', dest='dta', help='A path including one or more DTASelect files')
+    theParser.add_argument('--dta_path', dest='dta_path', help='A path including one or more DTASelect files')
     theParser.add_argument('--output', dest='output', help='SCF Output file path')
 
     theArgs = theParser.parse_args(sys.argv[1:])

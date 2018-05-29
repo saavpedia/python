@@ -80,6 +80,10 @@ class LocalDB(object) :
                     ithData[7] = theSplitedAA[0]
                     ithData[8] = theSplitedAA[1]
                     ithData[14] = '' #ithData[15] + ';' + ithData[16]
+                    if 'correct' in ithData[17]:
+                        ithData[12] = '1'
+                    else:
+                        ithData[12] = '0'
                     pass
                 self.__itsHeader = theHeaderList
                 self.__itsData = theChangedData
