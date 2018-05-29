@@ -151,6 +151,7 @@ class SAAVpedia(object) :
             ['SAAVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SAAVretriever.input.txt'],
             #['SAAVvisualizer.input.scf', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SAAVvisualizer.input.scf'],
             ['SNVretriever.input.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/SNVretriever.input.txt'],
+            ['DTASelect-filter.txt', 'https://raw.githubusercontent.com/saavpedia/python/master/demo/SAAVpedia/test_data/DTASelect-filter.txt']
         ]
 
         if not os.path.exists(theDestination):
