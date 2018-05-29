@@ -18,7 +18,8 @@
 
 from db import LocalDB
 from db import OnlineDB
-import os, urllib2, datetime
+import os, urllib2
+from datetime import datetime
 #import glob, shutil
 
 class SAAVpedia(object) :
