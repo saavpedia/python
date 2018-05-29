@@ -51,10 +51,10 @@ def main(theArgs):
     theRESTEnd = time.time()
     print 'Estimated time for fetching data: {0:.3f}s'.format(theRESTEnd-theRESTBegin)
 
+    theSCFHeader = theSAAVpedia.header()
     if theArgs.dta:
         print 'Loading a DTASelect-filter.txt file ({0})'.format(theArgs.dta)
         theSCFData = calculateQualityScore(theSCFData, [theArgs.dta])
-        theSCFHeader = theSAAVpedia.header()
         theSCFHeader.append('SAAV_QS')
         theSCFHeader.append('SAAV_Pvalue')
     elif theArgs.dta_path:
@@ -62,7 +62,6 @@ def main(theArgs):
         for ithDTA in theDTAFilePathList:
             print 'Loading a DTASelect-filter.txt file ({0})'.format(ithDTA)
         theSCFData = calculateQualityScore(theSCFData, theDTAFilePathList)
-        theSCFHeader = theSAAVpedia.header()
         theSCFHeader.append('SAAV_QS')
         theSCFHeader.append('SAAV_Pvalue')
 

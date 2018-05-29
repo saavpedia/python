@@ -35,13 +35,13 @@ def changePosition(theData, theChangePositionList):
     return theNewData
 
 theChangePositionListV1 = [
-    0, 1, 2, 3, 4, 6, 11, 12, 12, 13, 14, -1, -1, 8, -1, 16, -1, #SCF
+    0, 1, 2, 3, 4, 6, 11, 12, 12, 13, 14, -1, -1, 7, -1, 16, -1, #SCF
     15, 5, 19, 24, 25, 26, 28, 27, 29,
     30, 20, 22, 23, 21,
     17, 18,
     32, 33, 74, 35,
     38, 39, 40, 41, # related to Drugs
-    7, 49, 44, 10, 9, 53, 52, 51, 50, 56, 60, 55, 59, 62, 45, 47, 60, 48, 56, 58] #DB identifiers
+    8, 49, 44, 10, 9, 53, 52, 51, 50, 56, 60, 55, 59, 62, 45, 47, 60, 48, 56, 58] #DB identifiers
 
 
 theHeaderList = [
@@ -63,7 +63,7 @@ theHeaderList = [
     'SAAV_filter',  # -1
     'SAAV_SDM',  # -1
 
-    'PROTEIN_Uniprot', #8
+    'PROTEIN_Nextprot', #7
 
     'Info', #-1
     'SAAV_QS',   #16
@@ -101,7 +101,7 @@ theHeaderList = [
     'SNV_DT',
     'SNV_PGT',
 
-    'PROTEIN_Nextprot',
+    'PROTEIN_Uniprot', #8
     'PROTEIN_PDB',
     'PROTEIN_Ensembl_Pro',
     'TRANSCRIPT_Ensembl_Tra',
